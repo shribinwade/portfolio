@@ -1,0 +1,19 @@
+@reference "tailwindcss"; 
+:host{
+    width: 100%;
+    display: flex; 
+    justify-content: end;
+}
+
+.bubble-container{
+    @apply flex w-[50%] gap-2 items-end max-xl:w-[80%] max-md:hidden;
+}
+
+.bubble{
+    @apply w-full h-[90px] text-[#555] bg-white text-lg p-4 rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-none;
+}
+
+.bubble-container img{
+    @apply w-[50px] h-[50px] object-cover rounded-full bg-red-400;
+}
+

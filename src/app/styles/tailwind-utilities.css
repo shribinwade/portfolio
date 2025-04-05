@@ -1,0 +1,47 @@
+/* Custom Button Styles */
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 text-white hover:bg-gray-600;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+/* Container Styles */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 sm:max-w-2xl lg:px-8 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl ;
+}
+
+/* Form Input Styles */
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium;
+}
+
+/* Grid Layouts */
+.grid-cols-auto-fit {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* Link Styles */
+.link {
+  @apply text-white no-underline hover:text-gray-300 transition-colors duration-200;
+}
+
+/* Scroll Styles */
+.scroll-smooth-snap {
+  @apply overflow-y-auto scroll-smooth snap-y snap-mandatory;
+} 

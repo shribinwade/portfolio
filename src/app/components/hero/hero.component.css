@@ -1,0 +1,121 @@
+@reference "tailwindcss"; 
+.hero-container {
+    @apply h-screen overflow-hidden flex max-md:flex-col;
+}
+
+.hero-content{
+    @apply w-1/2 h-full flex flex-col justify-between max-md:w-full;
+}
+
+.hero-content.right{
+    @apply items-end;
+}
+
+.hero-title{
+    @apply mt-12 text-7xl text-pink-300 font-bold;
+}
+
+.hero-title span{
+    @apply text-white;
+}
+
+.hero-awards{
+    @apply my-4 w-2/6 max-md:w-full max-md:text-[13px];
+}
+
+.hero-awards p{ 
+  @apply text-sm text-gray-300 my-2 max-md:text-[8px];
+}
+
+.hero-award-list{
+   @apply flex gap-2 max-md:justify-center;
+}
+
+.hero-award-list img{
+    @apply w-9 h-9 p-2 bg-white rounded-full max-md:w-5 max-md:h-5 max-md:p-1;
+}
+
+.hero-award-list img:hover{
+    @apply cursor-pointer;
+}
+
+.scroll{
+    @apply mb-7 w-max;
+}
+
+.hero-content.right{
+    @apply items-end max-md:justify-end;
+}
+
+.hero-follow-list{
+    @apply flex flex-col gap-2 p-2 rounded-br-[10px] bg-[#2f204e] max-md:hidden;
+}
+
+.hero-follow-list img{
+     @apply bg-white rounded;
+}
+
+.followTextContainer{
+    @apply w-5 h-5;
+}
+
+.FollowText{
+    @apply bg-red-500 text-[12px] rotate-[90deg] w-max h-full origin-top-left translate-x-[25px] px-4 flex items-center justify-center rounded-br-[10px] font-medium;
+}
+
+.contactLink{
+    @apply mb-12;
+}
+
+.circleText{
+    @apply tracking-[3px] text-lg font-bold;
+}
+
+.contactButton{
+    @apply relative;
+}
+
+.arrow{
+    @apply absolute top-0 bottom-0 right-0 left-0 m-auto w-20 h-20 flex justify-center items-center;
+}
+
+.bg{
+    @apply absolute w-full h-full top-0 left-0 -z-10;
+}
+
+.hImg{
+    @apply absolute bottom-0 right-0 left-0 m-auto h-[80%] w-max;
+}
+
+.hImg img{
+    @apply w-full h-full object-cover;
+}
+
+.rotating {
+    animation: rotateAnim 3s linear infinite;
+}
+
+@keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-title{
+    @apply max-2xl:text-[72px] max-xl:text-[43px] max-md:text-[32px] max-md:mt-2;
+}
+
+.bg{
+    @apply max-xl:h-[60%] max-xl:top-auto max-xl:bottom-0 max-md:h-[50%];
+}
+
+.hImg{
+    @apply max-xl:h-[100%];
+}
+
+.hero-content.left{
+    @apply max-md:items-center max-md:text-center;
+}  

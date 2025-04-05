@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import './app/./styles/tailwind-utilities.css';
+@reference "tailwindcss"; 
+
+
+
+
+ /* Your custom styles here */

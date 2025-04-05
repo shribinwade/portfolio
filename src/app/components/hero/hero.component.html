@@ -1,0 +1,111 @@
+<div class="hero-container">
+  <!-- hero left side -->
+  <div class="hero-content left">
+    <!-- title -->
+
+    <h1 [@FadeInAnimation] class="hero-title">
+           Hey, there
+      <span class="hero-title-span"><br />I'm Shrihari</span>
+    </h1>
+
+    <!-- awards -->
+    <div [@AwardsInAnimation] class="hero-awards">
+      <h2>Top Rated Designer</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quos.
+      </p>
+
+      <div class="hero-award-list">
+        <img src="socials/icons8-github-30.png" alt="award" />
+        <img src="socials/icons8-linkedin-30.png" alt="award" />
+      </div>
+    </div>
+
+    <a  [@ScrollButtonInAnimation]="isVisible" href="services" className="scroll">
+      <svg   
+      width="50px"
+      height="50px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Main Path -->
+      <path 
+        d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z"
+        stroke="white"
+        strokeWidth="1"
+      />
+    </svg>
+    </a>
+  </div>
+
+
+  <!-- hero right side -->
+  <div class="hero-content right">
+    <!-- follow -->
+     <div [@FollowInAnimation] >
+      <div   class="hero-follow-list">
+   
+        <a href=""><img src="socials/icons8-github-30.png" alt="follow" /></a>
+        <a href=""><img src="socials/icons8-linkedin-30.png" alt="follow" /></a>
+    
+        <div  class="followTextContainer">
+          <div class="FollowText">FIND ME</div>
+        </div>
+      </div>
+     </div>
+
+    <!-- //BUBBLE -->
+    <app-bubble></app-bubble>
+     
+
+    <!-- Contact Button -->
+    <a [@ContactCircalInAnimation]="isRotate" [class.rotating]="isRotate === 'visible'" href="/#contact" class="contactLink">
+      <div class="contactButton">
+        <svg width="110px" height="110px" viewBox="0 0 200 200">
+          <!-- Outer Circle -->
+          <circle cx="100" cy="100" r="90" fill="pink"></circle>
+
+          <!-- Text Path -->
+          <path
+            id="innerCirclePath"
+            fill="none"
+            d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+          />
+
+          <!-- Rotating Text -->
+          <text class="circleText">
+            <textPath href="#innerCirclePath">Hire Now ·</textPath>
+          </text>
+          <text class="circleText">
+            <textPath href="#innerCirclePath" startOffset="44%">
+              Contact Me ·
+            </textPath>
+          </text>
+        </svg>
+        <div class="arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="50"
+            height="50"
+            fill="none"
+            stroke="black"
+            strokeWidth="2"
+          >
+            <line x1="6" y1="18" x2="18" y2="6" />
+            <polyline points="9 6 18 6 18 15" />
+          </svg>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="bg">
+    <!-- 3d -->
+     <div class="hImg">
+      <img  src="mypicsquare.png" alt="">
+
+     </div>
+
+  </div>
+</div>
