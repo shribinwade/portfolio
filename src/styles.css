@@ -1,9 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import './app/./styles/tailwind-utilities.css';
-@reference "tailwindcss"; 
 
 
+*{
+    @apply p-0 m-0 box-border;
+}
 
+html{
+    @apply snap-mandatory snap-y scroll-smooth
+}
+
+body{
+    @apply bg-linear-to-b from-[#12071f] to-[#2f204e] min-h-full;
+}
+
+a{
+    @apply no-underline 
+}
 
  /* Your custom styles here */
