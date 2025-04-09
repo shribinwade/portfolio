@@ -1,3 +1,6 @@
-<section style="display: flex; align-items: center; justify-content: center;">
-    <ngt-canvas [sceneGraph]="sceneGraph" />
+<section class="h-screen " style="display: flex; align-items: center; justify-content: center;">
+    <ngt-canvas class="h-full"  [sceneGraph]="sceneGraph" />
+    <ngts-orbit-controls [options]="{ enableZoom: false, enablePan: false }" />
+
+ 
 </section>

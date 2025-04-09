@@ -9,9 +9,12 @@ import { Test3dComponent } from './components/angularThree/test3d/test3d.compone
 import { ServicesComponent } from './components/services/services.component';
 
 
+
 @Component({
     selector: 'app-root',
-    imports: [ServicesComponent, PortfolioComponent, ContactComponent, Test3dComponent, HeroComponent, ServicesComponent],
+    imports: [ServicesComponent, PortfolioComponent, ContactComponent, Test3dComponent, HeroComponent, ServicesComponent,
+
+    ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })

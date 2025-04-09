@@ -3,7 +3,9 @@ import { extend, NgtCanvas } from 'angular-three';
 import { SceneGraph } from '../scenegrapgh/scenegrapgh.component';
 import * as THREE from 'three';
 
+ 
 extend(THREE);
+
 @Component({
   selector: 'app-test3d',
   standalone: true,
