@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { extend, NgtCanvas } from 'angular-three';
 import { SceneGraph } from '../scenegrapgh/scenegrapgh.component';
 import * as THREE from 'three';
+import { NgtsMeshDistortMaterial } from 'angular-three-soba/materials';
 
  
 extend(THREE);

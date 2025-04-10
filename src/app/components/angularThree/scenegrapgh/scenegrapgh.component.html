@@ -4,13 +4,13 @@
   (pointerout)="hover = false"
   (click)="rotateCube()"
   [rotation]="rotation">
-    <ngt-sphere-geometry [args]="[2, 50, 200]"/>
+  <ngt-icosahedron-geometry *args="[1.2, 4]" />
     <ngts-mesh-distort-material
-    [color]="'hotpink'"
-    [distort]="0.5"
+    [color]="'skyblue'"
+    [options]="materialOptions()"
     [speed]="2"
   />
-    <ngt-mesh-standard-material   [parameters]="{ color: hover ? 'hotpink' : 'skyblue' }"></ngt-mesh-standard-material>
+    <!-- <ngt-mesh-standard-material   [parameters]="{ color: hover ? 'hotpink' : 'skyblue' }"></ngt-mesh-standard-material> -->
    </ngt-mesh>
 
    <ngt-ambient-light [intensity]="0.2"/>

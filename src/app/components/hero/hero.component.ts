@@ -14,10 +14,11 @@ import {
   AnimationOptions,
   // ...
 } from '@angular/animations';
+import { SceneGraph } from "../angularThree/scenegrapgh/scenegrapgh.component";
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [BubbleComponent,],
+  imports: [BubbleComponent,SceneGraph],
   animations: [
     trigger('FadeInAnimation', [
       transition(':enter', [

@@ -1,16 +1,18 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, viewChild } from '@angular/core';
-import { injectBeforeRender } from 'angular-three';
-import { Mesh } from 'three';
+import { AfterViewInit, Component, computed, CUSTOM_ELEMENTS_SCHEMA, ElementRef, viewChild } from '@angular/core';
+import { injectBeforeRender, injectLoader } from 'angular-three';
 import { NgtsMeshDistortMaterial } from 'angular-three-soba/materials';
+import { BoxGeometry, Mesh, SphereGeometry } from 'three';
+
 
 @Component({
+  selector:'app-3d-sphere',
    imports: [NgtsMeshDistortMaterial],
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './scenegrapgh.component.html',
   styleUrl: './scenegrapgh.component.css'
 })
-export class SceneGraph {
+export class SceneGraph implements AfterViewInit{
 
   //Getting Reference with viewChild
   meshRef = viewChild.required<ElementRef<Mesh>>('mesh');
@@ -20,7 +22,35 @@ export class SceneGraph {
       const mesh = this.meshRef().nativeElement;
       mesh.rotation.x += 0.01;
       mesh.rotation.y += 0.01;
+
+      let geometry = new SphereGeometry(); // [1, 1, 1] box
+      mesh.geometry = geometry;
+      
+      // later when we want a bigger box
+      mesh.geometry.dispose(); // dispose old box
+      // // construct new box
+      // geometry = new SphereGeometry(2); // [2, 2, 2] box
+      mesh.geometry = geometry;
     });
+  }
+
+
+
+  materialOptions = computed(() => ({
+
+    emissive: '#FFC0CB',
+    emissiveIntensity: 0.9,
+    roughness: 0.1,
+    metalness: 1,
+    bumpScale: 0.010,
+    clearcoat: 2,
+    clearcoatRoughness: 1,
+    radius: 1.7,
+    distort: 0.6,
+    toneMapped: false,
+  }));
+  ngAfterViewInit(): void {
+    
   }
 
   hover = false;
@@ -36,5 +66,7 @@ export class SceneGraph {
   }
 
   protected readonly Math = Math;
+
+  
 
 }
