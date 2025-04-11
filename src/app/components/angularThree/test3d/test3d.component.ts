@@ -10,12 +10,12 @@ extend(THREE);
 @Component({
   selector: 'app-test3d',
   standalone: true,
-  imports: [NgtCanvas],
+  imports: [],
   templateUrl: './test3d.component.html',
   styleUrl: './test3d.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Test3dComponent {
-  protected sceneGraph = SceneGraph;
+  // protected sceneGraph = SceneGraph;
 
 }

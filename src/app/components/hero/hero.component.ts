@@ -15,10 +15,11 @@ import {
   // ...
 } from '@angular/animations';
 import { SceneGraph } from "../angularThree/scenegrapgh/scenegrapgh.component";
+import { BubbleshapeComponent } from "./bubbleshape/bubbleshape.component";
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [BubbleComponent,SceneGraph],
+  imports: [BubbleComponent, BubbleshapeComponent],
   animations: [
     trigger('FadeInAnimation', [
       transition(':enter', [

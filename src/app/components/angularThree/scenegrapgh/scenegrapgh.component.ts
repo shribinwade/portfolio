@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, computed, CUSTOM_ELEMENTS_SCHEMA, ElementRef, viewChild } from '@angular/core';
 import { injectBeforeRender, injectLoader } from 'angular-three';
 import { NgtsMeshDistortMaterial } from 'angular-three-soba/materials';
-import { BoxGeometry, Mesh, SphereGeometry } from 'three';
+import {  Mesh, SphereGeometry } from 'three';
 
 
 @Component({
@@ -40,13 +40,9 @@ export class SceneGraph implements AfterViewInit{
 
     emissive: '#FFC0CB',
     emissiveIntensity: 0.9,
-    roughness: 0.1,
     metalness: 1,
-    bumpScale: 0.010,
-    clearcoat: 2,
-    clearcoatRoughness: 1,
-    radius: 1.7,
-    distort: 0.6,
+    radius: 2.4,
+    distort: 0.7,
     toneMapped: false,
   }));
   ngAfterViewInit(): void {
@@ -66,7 +62,5 @@ export class SceneGraph implements AfterViewInit{
   }
 
   protected readonly Math = Math;
-
-  
 
 }
