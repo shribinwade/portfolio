@@ -11,10 +11,8 @@ import {
   keyframes,
   stagger,
   query,
-  AnimationOptions,
   // ...
 } from '@angular/animations';
-import { SceneGraph } from "../angularThree/scenegrapgh/scenegrapgh.component";
 import { BubbleshapeComponent } from "./bubbleshape/bubbleshape.component";
 @Component({
   selector: 'app-hero',
@@ -97,18 +95,15 @@ import { BubbleshapeComponent } from "./bubbleshape/bubbleshape.component";
           style({ offset: 1, transform: 'translateX(0) rotate(360deg)', opacity: 1 })
         ]))
       ]),
-
-
     ])
+  ],
 
-    
- 
-  ]
-    ,
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
+
+  
 
   isVisible = true;
   isRotate = 'void';

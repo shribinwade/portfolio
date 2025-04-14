@@ -7,7 +7,6 @@ import { Component, inject } from '@angular/core';
 import { TypewriterService } from '../../../services/services/typewriter.service';
 
 
-
 @Component({
   selector: 'app-bubble',
   standalone: true,
@@ -36,7 +35,7 @@ import { TypewriterService } from '../../../services/services/typewriter.service
   ],
 })
 export class BubbleComponent {
-  titles = ['Hi..!', 'How are you?', 'What are you up to?'];
+  titles = ['Hi..!', "I'm Full Stack Developer", "I'm Blogger"];
   private typewriterService = inject(TypewriterService);
 
    typedText$ = this.typewriterService

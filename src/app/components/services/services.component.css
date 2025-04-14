@@ -1,1 +1,13 @@
 @reference "tailwindcss"; 
+
+.services{
+    @apply h-full flex overflow-hidden
+}
+
+.sSection{
+    @apply w-1/2 flex flex-col justify-center
+}
+
+.sSection.right{
+    @apply h-screen flex justify-center items-center
+}

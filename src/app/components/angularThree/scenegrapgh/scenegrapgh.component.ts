@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, computed, CUSTOM_ELEMENTS_SCHEMA, ElementRef, viewChild } from '@angular/core';
-import { injectBeforeRender, injectLoader } from 'angular-three';
+import { extend, injectBeforeRender, injectLoader, NgtArgs } from 'angular-three';
 import { NgtsMeshDistortMaterial } from 'angular-three-soba/materials';
 import {  Mesh, SphereGeometry } from 'three';
 
 
+
 @Component({
   selector:'app-3d-sphere',
-   imports: [NgtsMeshDistortMaterial],
+   imports: [NgtsMeshDistortMaterial,NgtArgs],
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './scenegrapgh.component.html',
@@ -23,21 +24,21 @@ export class SceneGraph implements AfterViewInit{
       mesh.rotation.x += 0.01;
       mesh.rotation.y += 0.01;
 
-      let geometry = new SphereGeometry(); // [1, 1, 1] box
-      mesh.geometry = geometry;
+      // let geometry = new SphereGeometry(1, 64, 64); // [1, 1, 1] box
+      // mesh.geometry = geometry;
       
-      // later when we want a bigger box
-      mesh.geometry.dispose(); // dispose old box
-      // // construct new box
-      // geometry = new SphereGeometry(2); // [2, 2, 2] box
-      mesh.geometry = geometry;
+      // // later when we want a bigger box
+      // mesh.geometry.dispose(); // dispose old box
+      // // // construct new box
+      // // geometry = new SphereGeometry(2); // [2, 2, 2] box
+      // mesh.geometry = geometry;
     });
   }
-
-
+// Define sphere geometry properties
 
   materialOptions = computed(() => ({
 
+    color: '#FFC0CB',
     emissive: '#FFC0CB',
     emissiveIntensity: 0.9,
     metalness: 1,

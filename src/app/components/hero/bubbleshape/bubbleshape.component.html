@@ -1,1 +1,7 @@
-<ngt-canvas class="h-full"  [sceneGraph]="sceneGraph" />
+<ng-container *ngIf="sceneGraph; else loading" >
+    <ngt-canvas class="h-full" [sceneGraph]="sceneGraph" />
+</ng-container>
+<ng-template #loading>
+     <p class="text-amber-50">loading...</p> 
+</ng-template>
+
