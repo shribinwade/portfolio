@@ -1,8 +1,10 @@
 @reference "tailwindcss"; 
 
 .services{
-    @apply h-full flex overflow-hidden
+    @apply h-full flex overflow-hidden opacity-0 translate-x-[50px]
 }
+
+ 
 
 .sSection{
     @apply w-1/2 flex flex-col justify-center
@@ -10,4 +12,22 @@
 
 .sSection.right{
     @apply h-screen flex justify-center items-center
+}
+
+.sTitle{
+    @apply text-[44px] mb-6
+}
+
+.slist{
+    @apply flex flex-col gap-5 m-1
+}
+
+.service{
+    @apply w-1/2 p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer
+}
+
+.white-icon{
+    color: white;
+    width: 48px;
+    height: 48px;
 }

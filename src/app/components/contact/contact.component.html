@@ -1,2 +1,64 @@
-  <h1>contact</h1>
+<div class="contact">
+
+  <div class="cSection">
+    <form class="forms" [formGroup]="profileForm" (ngSubmit)="sendEmail($event)">
+      <h1>Let's keep in touch </h1>
+      <div class="formItem">
+        <label for="first-name">First Name: </label>
+        <input id="first-name" type="text" placeholder="Name" name="user_username" formControlName="firstName" />
+        @if (submitted && firstName?.invalid && (firstName?.dirty || firstName?.touched || profileForm.invalid)){
+          @if (firstName?.hasError('required')) {
+            <div class="error">
+              Name is required.
+            </div>
+          
+          }
+        }
+    
+      </div>
+     
+      <div class="formItem">
+        <label for="email">Email </label>
+        <input id="email" type="text" name="user_email" placeholder="example@gmail.com" formControlName="email" />
+        @if ( submitted && email?.invalid && (email?.dirty || email?.touched || email?.invalid)){
+        @if (email?.hasError('required')) {
+          <div class="error">
+            Email is required.
+          </div>
+        }
+        @if (email?.hasError('email')) {
+          <div class="error">
+           Invalid Email
+          </div>
+        }
+      }
+      </div>
+      <div class="formItem">
+        <label for="last-name">Message </label>
+        <textarea  id="last-name" name="user_message" type="text" rows="3" formControlName="message" placeholder="Write Your Message..."> </textarea>
+        @if (submitted && message?.invalid && (message?.dirty || message?.touched  || message?.invalid)){
+        @if (message?.hasError('required')) {
+          <div class="error">
+            message is required.
+          </div>
+        }
+      }
+      </div>
+  
+
+      <button type="submit" class="btn formButton">Send</button>
+      @if (submitted && profileForm.valid ){
+           <div class="text-green-300">
+            Message Sent Successfully
+           </div>
+      }
+    </form>
+
+  </div>
+
+  <div class="cSection">
+    SVG
+  </div>
+
+</div>
 

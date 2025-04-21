@@ -1,0 +1,30 @@
+@reference "tailwindcss"; 
+.contact{
+    @apply h-screen flex items-center gap-[100px] text-white
+}
+
+.cSection{
+    @apply w-1/2  p-[20px] h-full flex justify-center items-center
+}
+
+.forms{
+    @apply flex w-[90%]  flex-col gap-[10px] 
+} 
+
+input, textarea{
+    @apply p-2 border-none rounded-[5px] bg-white text-black
+}
+.formItem{
+    @apply flex flex-col gap-1
+}
+
+label{
+   @apply text-[13px] 
+}
+
+.formButton{
+    @apply bg-[#dd4c62] text-white p-2 border-none rounded-[10px] cursor-pointer
+}
+.error{
+    @apply text-[#dd4c62] text-[13px] 
+}
