@@ -1,33 +1,61 @@
 @reference "tailwindcss"; 
 
 .services{
-    @apply h-full flex overflow-hidden opacity-0 translate-x-[50px]
+    @apply h-full flex overflow-hidden opacity-100   max-md:items-center max-md:justify-center
 }
 
- 
-
 .sSection{
-    @apply w-1/2 flex flex-col justify-center
+    @apply w-1/2 flex flex-col justify-center max-md:w-full
 }
 
 .sSection.right{
-    @apply h-screen flex justify-center items-center
+    @apply h-screen flex justify-center items-center max-md:hidden 
 }
 
 .sTitle{
-    @apply text-[44px] mb-6
+    @apply text-[44px] mb-6 max-lg:text-[48px] max-sm:text-[30px] 
 }
 
 .slist{
-    @apply flex flex-col gap-5 m-1
+    @apply flex flex-col gap-5 m-1 
 }
 
 .service{
-    @apply w-1/2 p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer
+    @apply w-[50%] p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[100%] 
 }
 
-.white-icon{
-    color: white;
-    width: 48px;
-    height: 48px;
+.left{
+    @apply -translate-x-[500px] opacity-0
 }
+
+.right{
+    @apply translate-x-[500px] opacity-0
+}
+
+.sIcon{
+    @apply w-[45px] h-[45px] rounded-full flex items-center justify-center
+}
+
+.sIcon img{
+    @apply text-white w-[24px] h-[24px]
+}
+
+.sInfo h2{
+    @apply text-[18px] font-medium mb-[8px]
+}
+
+.sInfo h3{
+    @apply text-[13px] font-light 
+}
+
+.service:nth-child(1) .sIcon{
+    @apply bg-[#dd4c62]
+}
+
+.service:nth-child(2) .sIcon{
+    @apply bg-[#025656]
+}
+.service:nth-child(3) .sIcon{
+    background-color: #6c5c0c;
+}
+

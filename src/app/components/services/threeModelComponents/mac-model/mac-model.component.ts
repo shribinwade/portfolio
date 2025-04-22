@@ -65,7 +65,6 @@ export class MacModelComponent implements AfterViewInit {
   protected glDomElement = this.store.select('gl', 'domElement');
 
   ngAfterViewInit(): void {
-  
     this.camera().position.set( 2, 2, 4.1 );
   }
 

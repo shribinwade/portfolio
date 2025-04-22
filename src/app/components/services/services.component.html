@@ -1,10 +1,10 @@
 <div class="services text-white"  #serviceSection>
-    <div class="sSection left">
+    <div class="sSection left" [@serviceInAnimation] #left>
          <h1 class="sTitle">How do i Help?</h1>
-         <div class="slist" *ngFor="let service of services">
-            <div class="service" [id]="service.id">
+         <div class="slist">
+            <div class="service" [id]="service.id"  *ngFor="let service of services">
                   <div class="sIcon">
-                    <img class="white-icon" [src]="service.img" alt="{{service.title}}" width="48" height="48" />
+                    <img  [src]="service.img" alt="{{service.title}}" width="48" height="48" />
                   </div>
                   <div class="sInfo">
                       <h2>{{service.title}}</h2>
@@ -13,9 +13,7 @@
             </div>
          </div>
     </div>
-    <div class="sSection right" >
-     
-        <ngt-canvas class="canvas" [sceneGraph]="sceneGraph" [camera]="{zoom: 1}"   ></ngt-canvas>
-
+    <div class="sSection right" #right>
+        <ngt-canvas class="canvas"  [sceneGraph]="sceneGraph" [camera]="{zoom: 1}"   ></ngt-canvas>
     </div>
 </div>
