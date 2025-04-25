@@ -1,0 +1,11 @@
+Model Information:
+* title:	UI UX typing machine
+* source:	https://sketchfab.com/3d-models/ui-ux-typing-machine-5d717a7a9f0f48e3bfbfcfb465427b55
+* author:	teryrocks32 (https://sketchfab.com/mohammed_el-tairy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "UI UX typing machine" (https://sketchfab.com/3d-models/ui-ux-typing-machine-5d717a7a9f0f48e3bfbfcfb465427b55) by teryrocks32 (https://sketchfab.com/mohammed_el-tairy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

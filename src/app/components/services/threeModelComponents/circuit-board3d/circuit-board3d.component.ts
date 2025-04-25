@@ -10,33 +10,27 @@ import { OrbitControls } from 'three-stdlib';
 import { Vector3 } from 'three';
 
 extend(THREE); // everything in THREE is now available
-extend({ OrbitControls }); // makes ngt-orbit-controls available
-
+extend({ OrbitControls });
 @Component({
-  selector: 'app-mac-model',
   standalone: true,
-  imports: [NgtsEnvironment, NgtsLightformer, NgtsContactShadows, NgtArgs],
-  templateUrl: './mac-model.component.html',
-  styleUrl: './mac-model.component.css',
+  imports: [NgtsEnvironment, NgtsContactShadows, NgtArgs],
+  selector: 'app-circuit-board3d',
+  templateUrl: './circuit-board3d.component.html',
+  styleUrl: './circuit-board3d.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MacModelComponent implements AfterViewInit {
-  
+export class CircuitBoard3dComponent {
   protected readonly Math = Math;
-  
+
   meshRef = viewChild.required<ElementRef<Mesh>>('mesh');
   orbitControls = viewChild.required<ElementRef<OrbitControls>>('orbirControls');
 
-  @ViewChild('camera') cameraRef!: NgtPerspectiveCamera;
-  @ViewChild('orbitControls') controlsRef!: OrbitControls; // Reference to the directive
-
-   constructor() {
+  constructor() {
     const v = new Vector3();
     injectBeforeRender(({ delta,camera,clock  }) => {
       const t = clock.elapsedTime;
       const orbitControls = this.orbitControls()?.nativeElement;
-      camera.position.lerp(v.set(Math.sin(t / 5), 2, 6 + Math.cos(t / 5) / 2), 0.05);
+      camera.position.lerp(v.set(Math.sin(t / 5), 1, 6 + Math.cos(t / 5) / 2), 0.05);
       if (orbitControls) {
         orbitControls.update();
       
@@ -46,16 +40,14 @@ export class MacModelComponent implements AfterViewInit {
     })
   }
 
-	scale = input(0.60);
-  gltf = injectLoader(() => GLTFLoader, () => `scene.gltf`);
+  scale = input(1);
+  gltf = injectLoader(() => GLTFLoader, () => `java/scene.gltf`);
   model = computed(() => {
     const gltf = this.gltf();
     if (!gltf) return null;
-
     return gltf.scene;
   })
-  
-  // gltfResult = injectLoader(() => GLTFLoader, () => 'mac.glb');
+
   private store = injectStore();
   protected camera = this.store.select('camera');
   protected glDomElement = this.store.select('gl', 'domElement');
@@ -63,7 +55,6 @@ export class MacModelComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.camera().position.set( 40, 20, 20);
   }
-  
 }
 
 

@@ -10,28 +10,26 @@ import { OrbitControls } from 'three-stdlib';
 import { Vector3 } from 'three';
 
 extend(THREE); // everything in THREE is now available
-extend({ OrbitControls }); // makes ngt-orbit-controls available
+extend({ OrbitControls });
 
 @Component({
-  selector: 'app-mac-model',
+  selector: 'app-ui-ux3d',
   standalone: true,
   imports: [NgtsEnvironment, NgtsLightformer, NgtsContactShadows, NgtArgs],
-  templateUrl: './mac-model.component.html',
-  styleUrl: './mac-model.component.css',
+  templateUrl: './ui-ux3d.component.html',
+  styleUrl: './ui-ux3d.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MacModelComponent implements AfterViewInit {
-  
+export class UiUx3dComponent {
+
   protected readonly Math = Math;
+
   
   meshRef = viewChild.required<ElementRef<Mesh>>('mesh');
   orbitControls = viewChild.required<ElementRef<OrbitControls>>('orbirControls');
 
-  @ViewChild('camera') cameraRef!: NgtPerspectiveCamera;
-  @ViewChild('orbitControls') controlsRef!: OrbitControls; // Reference to the directive
-
-   constructor() {
+  constructor() {
     const v = new Vector3();
     injectBeforeRender(({ delta,camera,clock  }) => {
       const t = clock.elapsedTime;
@@ -46,16 +44,15 @@ export class MacModelComponent implements AfterViewInit {
     })
   }
 
-	scale = input(0.60);
-  gltf = injectLoader(() => GLTFLoader, () => `scene.gltf`);
+  scale = input(0.60);
+  gltf = injectLoader(() => GLTFLoader, () => `ui_ux_typing_machine/scene.gltf`);
   model = computed(() => {
     const gltf = this.gltf();
     if (!gltf) return null;
 
     return gltf.scene;
   })
-  
-  // gltfResult = injectLoader(() => GLTFLoader, () => 'mac.glb');
+
   private store = injectStore();
   protected camera = this.store.select('camera');
   protected glDomElement = this.store.select('gl', 'domElement');
@@ -65,5 +62,3 @@ export class MacModelComponent implements AfterViewInit {
   }
   
 }
-
-

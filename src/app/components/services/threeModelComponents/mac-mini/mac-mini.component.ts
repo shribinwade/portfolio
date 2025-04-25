@@ -1,3 +1,4 @@
+
 import { CUSTOM_ELEMENTS_SCHEMA, Component, viewChild, ElementRef, ChangeDetectionStrategy, computed, ViewChild, AfterViewInit, input } from '@angular/core';
 import { injectStore, extend, injectBeforeRender, injectLoader, NgtArgs, NgtPerspectiveCamera } from 'angular-three';
 import * as THREE from 'three';
@@ -11,18 +12,15 @@ import { Vector3 } from 'three';
 
 extend(THREE); // everything in THREE is now available
 extend({ OrbitControls }); // makes ngt-orbit-controls available
-
 @Component({
-  selector: 'app-mac-model',
-  standalone: true,
+  selector: 'app-mac-mini',
   imports: [NgtsEnvironment, NgtsLightformer, NgtsContactShadows, NgtArgs],
-  templateUrl: './mac-model.component.html',
-  styleUrl: './mac-model.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './mac-mini.component.html',
+  styleUrl: './mac-mini.component.css'
 })
-export class MacModelComponent implements AfterViewInit {
-  
+export class MacMiniComponent {
   protected readonly Math = Math;
   
   meshRef = viewChild.required<ElementRef<Mesh>>('mesh');
@@ -47,7 +45,7 @@ export class MacModelComponent implements AfterViewInit {
   }
 
 	scale = input(0.60);
-  gltf = injectLoader(() => GLTFLoader, () => `scene.gltf`);
+  gltf = injectLoader(() => GLTFLoader, () => `apple_mac_studio/scene.gltf`);
   model = computed(() => {
     const gltf = this.gltf();
     if (!gltf) return null;
@@ -61,9 +59,7 @@ export class MacModelComponent implements AfterViewInit {
   protected glDomElement = this.store.select('gl', 'domElement');
 
   ngAfterViewInit(): void {
-    this.camera().position.set( 40, 20, 20);
+    this.camera().position.set( 2, 2, 4.1 );
   }
   
 }
-
-

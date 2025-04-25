@@ -24,13 +24,17 @@
     @apply w-[50%] p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[100%] 
 }
 
+.service.active{
+    @apply border-r-6 w-[60%] max-2xl:w-[80%] max-xl:w-[80%] border-[#dd4c62]
+}
+
 .left{
     @apply  opacity-100
 }
 
 
 .right{
-    @apply translate-x-[500px] opacity-0
+    @apply  opacity-100
 }
 
 .sIcon{

@@ -2,7 +2,7 @@
     <div class="sSection left"  #left>
          <h1 class="sTitle">How do i Help?</h1>
          <div class="slist" @serviceInAnimation #serviceWrapper>
-            <div class="service"  #serviceBox [id]="service.id"  *ngFor="let service of services">
+            <div class="service active"  #serviceBox [id]="service.id"  (click)="setCurrentServiceID(service.id)"  *ngFor="let service of services">
                   <div class="sIcon">
                     <img  [src]="service.img" alt="{{service.title}}" width="48" height="48" />
                   </div>
@@ -14,6 +14,12 @@
          </div>
     </div>
     <div class="sSection right" #right>
-        <ngt-canvas class="canvas"  [sceneGraph]="sceneGraph" [camera]="{zoom: 1}"   ></ngt-canvas>
+        @if (serviceID === 1) {
+            <ngt-canvas class="canvas"  [sceneGraph]="sceneGraph" [camera]="{zoom: 1}" ></ngt-canvas>
+        } @else if (serviceID === 2) {
+            <ngt-canvas class="canvas"  [sceneGraph]="sceneGraph" [camera]="{zoom: 1}" ></ngt-canvas>
+        } @else if (serviceID === 3){
+            <ngt-canvas class="canvas"  [sceneGraph]="sceneGraph" [camera]="{zoom: 2}" ></ngt-canvas>
+        }
     </div>
 </div>

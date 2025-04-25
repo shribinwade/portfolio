@@ -15,6 +15,9 @@ import {
   query
 } from '@angular/animations';
 import { log } from 'three/src/nodes/TSL.js';
+import { MacMiniComponent } from './threeModelComponents/mac-mini/mac-mini.component';
+import { CircuitBoard3dComponent } from './threeModelComponents/circuit-board3d/circuit-board3d.component';
+import { UiUx3dComponent } from './threeModelComponents/ui-ux3d/ui-ux3d.component';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -47,7 +50,8 @@ gsap.registerPlugin(ScrollTrigger);
   // ]
 })
 export class ServicesComponent implements OnInit, AfterViewInit{
-  protected sceneGraph = MacModelComponent;
+
+ 
 
   @ViewChild('serviceSection',{static:true}) serviceSection!: ElementRef<HTMLDivElement>;
   @ViewChild('left',{static:true}) left!: ElementRef<HTMLDivElement>;
@@ -57,8 +61,28 @@ export class ServicesComponent implements OnInit, AfterViewInit{
   @ViewChildren('serviceBox') serviceBoxes!: QueryList<ElementRef>;
   @ViewChild('serviceWrapper') serviceWrapper!: ElementRef;
 
+  protected sceneGraph:any= MacModelComponent;
   
   constructor(@Inject(DOCUMENT) private document:Document){}
+ 
+  protected serviceID:number=1;
+
+  setCurrentServiceID(arg:number){
+    if(arg===1){
+      this.serviceID = arg;
+      this.sceneGraph = MacModelComponent
+    }
+    if(arg ===2 ){
+      this.serviceID = arg;
+      this.sceneGraph = CircuitBoard3dComponent
+    }
+    if(arg ===3){
+      this.serviceID = arg;
+      this.sceneGraph = UiUx3dComponent
+    }
+
+  }
+
   ngAfterViewInit(): void {
 
     const boxes = this.serviceBoxes.map(el => el.nativeElement);
@@ -75,7 +99,7 @@ export class ServicesComponent implements OnInit, AfterViewInit{
       opacity: 0,
       x: -100,
       y: 50,
-      duration: 1.3,
+      duration: 1,
       stagger: 0.3,
       ease: 'power2.out'
     });
@@ -100,14 +124,31 @@ export class ServicesComponent implements OnInit, AfterViewInit{
     //   }
     //  })
     // })
+
+    gsap.from(this.right.nativeElement,{
+      scrollTrigger: {
+        trigger: this.right.nativeElement,
+        start: 'top center',
+        end: 'center center',
+     
+        // markers: true,
+        //onEnter, onLeave, onEnterBack, onLeaveBack
+        toggleActions: 'restart none none reverse'
+      },
+      x: 100,
+      opacity: 0,
+      y: 50,
+      duration:1,
+        ease: 'power2.out'
+     })
+
   }
   
   
 
 
   ngOnInit(): void {
-   this.initScrollAnimation();
-   
+   this.initScrollAnimation(); 
   }
 
   initScrollAnimation():void{
@@ -154,19 +195,6 @@ export class ServicesComponent implements OnInit, AfterViewInit{
       //   // duration:1
       //  })
 
-       gsap.to(this.right.nativeElement,{
-        scrollTrigger: {
-          trigger: this.right.nativeElement,
-          start: 'top center',
-          end: 'center center',
-          scrub: 2,
-          // markers: true,
-          toggleActions: 'restart none  none'
-        },
-        x: 0,
-        opacity: 1,
-        duration:1
-       })
 
   }
 
@@ -192,5 +220,6 @@ export class ServicesComponent implements OnInit, AfterViewInit{
       counter: 5,
     }
   ]
+
 
 }

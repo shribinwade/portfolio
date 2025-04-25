@@ -1,0 +1,11 @@
+Model Information:
+* title:	Apple Mac Studio
+* source:	https://sketchfab.com/3d-models/apple-mac-studio-059d22336e744ae480479af6713bc637
+* author:	rtql8d (https://sketchfab.com/rtql8d)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Apple Mac Studio" (https://sketchfab.com/3d-models/apple-mac-studio-059d22336e744ae480479af6713bc637) by rtql8d (https://sketchfab.com/rtql8d) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
