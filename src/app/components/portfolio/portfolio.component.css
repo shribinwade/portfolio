@@ -1,1 +1,5 @@
 @reference "tailwindcss"; 
+
+.pList{
+    @apply flex h-screen w-max
+}

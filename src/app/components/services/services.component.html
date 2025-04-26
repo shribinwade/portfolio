@@ -2,7 +2,14 @@
     <div class="sSection left"  #left>
          <h1 class="sTitle">How do i Help?</h1>
          <div class="slist" @serviceInAnimation #serviceWrapper>
-            <div class="service active"  #serviceBox [id]="service.id"  (click)="setCurrentServiceID(service.id)"  *ngFor="let service of services">
+            <div class="service"  
+                 #serviceBox 
+                 [id]="service.id"  
+                 (click)="setCurrentServiceID(service.id)"   
+                 [ngClass]="{'active': service.id===serviceID}"  
+                 *ngFor="let service of services"
+                 >
+
                   <div class="sIcon">
                     <img  [src]="service.img" alt="{{service.title}}" width="48" height="48" />
                   </div>

@@ -25,7 +25,7 @@
 }
 
 .service.active{
-    @apply border-r-6 w-[60%] max-2xl:w-[80%] max-xl:w-[80%] border-[#dd4c62]
+    @apply border-r-6 w-[60%] max-2xl:w-[75%] max-xl:w-[75%] border-[#dd4c62]
 }
 
 .left{

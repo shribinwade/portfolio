@@ -1,2 +1,9 @@
 
- <h1>portfolio</h1>
+<div class="portfolio">
+    <div class="pList">
+        @for (item of items; track $index) {
+            <app-child-list-component [list]="item"></app-child-list-component>
+        }
+    </div>
+</div>
+

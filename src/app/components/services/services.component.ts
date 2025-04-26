@@ -93,7 +93,7 @@ export class ServicesComponent implements OnInit, AfterViewInit{
         start: 'top 81.5%',
         end: 'bottom 81.5%',
         toggleActions: 'restart none none reverse',
-        markers: true,
+        markers: false,
         // scrub:1
       },
       opacity: 0,
