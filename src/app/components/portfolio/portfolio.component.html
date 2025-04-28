@@ -1,9 +1,18 @@
 
-<div class="portfolio">
-    <div class="pList">
+<div class="portfolio" #panelContainer>
+    <div class="pList" #pList>
         @for (item of items; track $index) {
-            <app-child-list-component [list]="item"></app-child-list-component>
+            <div #project>
+                <app-child-list-component  [list]="item" [nthIndex]="$index"></app-child-list-component>
+
+            </div>
         }
     </div>
+    <!-- <section class="min-h-screen snap-center"></section>
+    <section class="min-h-screen snap-center"></section>
+    <section class="min-h-screen snap-center"></section>
+    <section class="min-h-screen snap-center"></section> -->
+
+    
 </div>
 

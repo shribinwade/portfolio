@@ -1,5 +1,5 @@
 <!-- Main Container -->
-<div class="container-custom ">
+<div class="container-custom">
 
   
   <!-- Hero Section -->
@@ -11,13 +11,15 @@
   <section class="min-h-screen snap-center ">
     <app-services></app-services>
   </section>
+</div>
 
-  <!-- Portfolio Section -->
-  <section class="min-h-screen bg-green-800 snap-center" >
-    <app-portfolio></app-portfolio>
-  </section>
+<!-- Portfolio Section (outside container-custom) -->
+<section class="min-h-screen snap-center w-full m-0 p-0">
+  <app-portfolio></app-portfolio>
+</section>
 
-  <!-- Contact Section -->  
+<!-- Contact Section -->  
+<div class="container-custom">
   <section class="min-h-screen snap-center">
     <app-contact></app-contact>
   </section>

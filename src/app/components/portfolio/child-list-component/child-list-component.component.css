@@ -1,7 +1,13 @@
 @reference "tailwindcss"; 
 
 .pItem{
-    @apply flex h-screen w-screen overflow-hidden items-center justify-center gap-24
+    @apply flex 
+           h-screen 
+           w-screen 
+           overflow-hidden 
+           items-center 
+           justify-center 
+           gap-24
 }
 
 .pImg{
@@ -28,3 +34,44 @@
     @apply bg-pink-300 p-3 rounded-[10px] border-none font-medium cursor-pointer
 
 }
+
+/* .pItem:nth-child(1){
+    @apply bg-linear-to-r from-[#12071f] to-[#210b3a]
+ }
+ 
+.pItem:nth-child(2){
+    @apply bg-linear-to-r from-[#210b3a] to-[#27084a]
+ }
+ 
+.pItem:nth-child(3){
+    @apply bg-linear-to-r from-[#27084a] to-[#220345]
+ }
+ 
+.pItem:nth-child(4){
+    @apply bg-linear-to-r from-[#220345] to-[#2a0159]
+ }
+ 
+.pItem:nth-child(5){
+    @apply bg-linear-to-r from-[#2a0159] to-[#12071f]
+ } */
+
+
+ :host(.first) .pItem {
+    @apply bg-linear-to-r from-[#12071f] to-[#210b3a];
+  }
+  
+  :host(.second) .pItem {
+    @apply bg-linear-to-r from-[#210b3a] to-[#27084a];
+  }
+  
+  :host(.third) .pItem {
+    @apply bg-linear-to-r from-[#27084a] to-[#220345];
+  }
+  
+  :host(.fourth) .pItem {
+    @apply bg-linear-to-r from-[#220345] to-[#2a0159];
+  }
+  
+  :host(.fifth) .pItem {
+    @apply bg-linear-to-r from-[#2a0159] to-[#12071f];
+  }

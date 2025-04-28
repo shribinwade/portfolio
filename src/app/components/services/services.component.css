@@ -21,11 +21,11 @@
 }
 
 .service{
-    @apply w-[50%] p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[100%] 
+    @apply w-[50%] p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[98%] 
 }
 
 .service.active{
-    @apply border-r-6 w-[60%] max-2xl:w-[75%] max-xl:w-[75%] border-[#dd4c62]
+    @apply border-r-6 w-[60%] max-2xl:w-[75%] max-xl:w-[75%] max-lg:w-[100%] border-[#dd4c62]
 }
 
 .left{

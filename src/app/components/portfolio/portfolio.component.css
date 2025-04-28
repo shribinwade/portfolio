@@ -1,5 +1,65 @@
 @reference "tailwindcss"; 
 
-.pList{
+/* .pList{
     @apply flex h-screen w-max
+} */
+
+.portfolio{
+    /* @apply w-[500vw] */
 }
+
+.portfolio {
+
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.pList {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  will-change: transform;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.pList > * {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Target the child components */
+.pList > *:nth-child(1) .pItem {
+  @apply bg-linear-to-r from-[#12071f] to-[#bba9cf];
+}
+
+.pList > *:nth-child(2) .pItem {
+  @apply bg-linear-to-r from-[#210b3a] to-[#471085];
+}
+
+.pList > *:nth-child(3) .pItem {
+  @apply bg-linear-to-r from-[#471085] to-[#6b27ba];
+}
+
+.pList > *:nth-child(4) .pItem {
+  @apply bg-linear-to-r from-[#6b27ba] to-[#bf9ae9];
+}
+
+.pList > *:nth-child(5) .pItem {
+  @apply bg-linear-to-r from-[#bf9ae9] to-[#bf9ae9];
+}
+
+
+
