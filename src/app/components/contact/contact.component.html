@@ -1,9 +1,9 @@
 <div class="contact">
 
-  <div class="cSection">
-    <form class="forms" [formGroup]="profileForm" (ngSubmit)="sendEmail($event)">
-      <h1>Let's keep in touch </h1>
-      <div class="formItem">
+  <div class="cSection" >
+    <form class="forms" #formBox [formGroup]="profileForm" (ngSubmit)="sendEmail($event)">
+      <h1 #formItemRef>Let's keep in touch </h1>
+      <div class="formItem" #formItemRef>
         <label for="first-name">First Name: </label>
         <input id="first-name" type="text" placeholder="Name" name="user_username" formControlName="firstName" />
         @if (submitted && firstName?.invalid && (firstName?.dirty || firstName?.touched || profileForm.invalid)){
@@ -17,7 +17,7 @@
     
       </div>
      
-      <div class="formItem">
+      <div class="formItem" #formItemRef>
         <label for="email">Email </label>
         <input id="email" type="text" name="user_email" placeholder="example@gmail.com" formControlName="email" />
         @if ( submitted && email?.invalid && (email?.dirty || email?.touched || email?.invalid)){
@@ -33,9 +33,9 @@
         }
       }
       </div>
-      <div class="formItem">
+      <div class="formItem" #formItemRef>
         <label for="last-name">Message </label>
-        <textarea  id="last-name" name="user_message" type="text" rows="3" formControlName="message" placeholder="Write Your Message..."> </textarea>
+        <textarea  id="last-name" name="user_message" type="text" rows="2" formControlName="message" placeholder="Write Your Message..."> </textarea>
         @if (submitted && message?.invalid && (message?.dirty || message?.touched  || message?.invalid)){
         @if (message?.hasError('required')) {
           <div class="error">
@@ -45,8 +45,10 @@
       }
       </div>
   
-
-      <button type="submit" class="btn formButton">Send</button>
+      
+          <button #formItemRef type="submit" class="btn formButton w-full" >Send</button>
+      
+    
       @if (submitted && profileForm.valid ){
            <div class="text-green-300">
             Message Sent Successfully

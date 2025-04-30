@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import {FormControl,  FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +13,9 @@ import { environment } from '../../../environments/environment';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit,AfterViewInit {
 
-
+  @ViewChildren('formItemRef', { read: ElementRef }) formItems!: QueryList<ElementRef>;
 
   profileForm:FormGroup = new FormGroup({
     firstName: new FormControl(''),
@@ -22,6 +25,29 @@ export class ContactComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder){
 
+  }
+  ngAfterViewInit(): void {
+    this.formItems.forEach((itemRef, index) => {
+      const item = itemRef.nativeElement;
+  
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom bottom',
+         
+          toggleActions: 'restart none none reverse',
+          markers: false,
+          
+        },
+        opacity: 0,
+        x: 80,
+        y: 10,
+        duration: 0.5,
+        delay: index * 0.2, // Simulate stagger manually
+        ease: 'power2.out'
+      });
+    });
   }
 
  
