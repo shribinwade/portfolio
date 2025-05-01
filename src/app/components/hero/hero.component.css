@@ -42,6 +42,9 @@
     @apply  p-2 bg-white rounded-[10px] max-md:w-max max-md:h-max max-md:p-1;
 }
 
+.resumebtn a:hover{
+    @apply  cursor-pointer
+}
 .hero-award-list img{
     @apply w-9 h-9 p-2 bg-white rounded-full max-md:w-5 max-md:h-5 max-md:p-1;
 }
