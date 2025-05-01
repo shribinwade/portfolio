@@ -18,6 +18,7 @@ import { log } from 'three/src/nodes/TSL.js';
 import { MacMiniComponent } from './threeModelComponents/mac-mini/mac-mini.component';
 import { CircuitBoard3dComponent } from './threeModelComponents/circuit-board3d/circuit-board3d.component';
 import { UiUx3dComponent } from './threeModelComponents/ui-ux3d/ui-ux3d.component';
+import { InfinityComponent } from './threeModelComponents/infinity/infinity.component';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -76,9 +77,13 @@ export class ServicesComponent implements OnInit, AfterViewInit{
       this.serviceID = arg;
       this.sceneGraph = CircuitBoard3dComponent
     }
-    if(arg ===3){
+    if(arg ===3 ){
       this.serviceID = arg;
       this.sceneGraph = UiUx3dComponent
+    }
+    if(arg === 4 ){
+      this.serviceID = arg;
+      this.sceneGraph = InfinityComponent
     }
 
   }
@@ -217,6 +222,12 @@ export class ServicesComponent implements OnInit, AfterViewInit{
       id:3,
       img:"uiux.svg",
       title: "UI/UX",
+      counter: 5,
+    },
+    {
+      id:4,
+      img:"dev-ops.svg",
+      title: "DevOps",
       counter: 5,
     }
   ]

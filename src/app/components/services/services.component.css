@@ -1,7 +1,7 @@
 @reference "tailwindcss"; 
 
 .services{
-    @apply h-full flex overflow-hidden opacity-100   max-md:items-center max-md:justify-center
+    @apply h-full flex overflow-hidden opacity-100  gap-[30px] max-md:items-center max-md:justify-center
 }
 
 .sSection{
@@ -13,15 +13,15 @@
 }
 
 .sTitle{
-    @apply text-[44px] mb-6 max-lg:text-[48px] max-sm:text-[30px] 
+    @apply text-[40px] mb-2 max-lg:text-[30px] 
 }
 
 .slist{
-    @apply flex flex-col gap-5 m-1 
+    @apply flex flex-col gap-2 m-1 
 }
 
 .service{
-    @apply w-[50%] p-7 rounded-[20px] bg-[#2f213f] flex items-center gap-5 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[98%] 
+    @apply w-[50%] p-4 rounded-[20px] bg-[#2f213f] flex items-center gap-3 cursor-pointer max-2xl:w-[70%] max-xl:w-[70%] max-lg:w-[98%] 
 }
 
 .service.active{
@@ -46,11 +46,11 @@
 }
 
 .sInfo h2{
-    @apply text-[18px] font-medium mb-[8px]
+    @apply text-[16px] font-medium mb-[8px]
 }
 
 .sInfo h3{
-    @apply text-[13px] font-light 
+    @apply text-[12px] font-light 
 }
 
 .service:nth-child(1) .sIcon{
@@ -62,5 +62,8 @@
 }
 .service:nth-child(3) .sIcon{
     background-color: #6c5c0c;
+}
+.service:nth-child(4) .sIcon{
+    background-color: #640490;
 }
 

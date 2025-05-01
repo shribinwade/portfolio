@@ -1,27 +1,24 @@
-<!-- Main Container -->
 <div class="container-custom">
-
-  
   <!-- Hero Section -->
-   <section class="min-h-screen snap-center">
-    <app-hero></app-hero>
-   </section>
+  <section class="min-h-screen snap-center" id="heroSection">
+    <ng-container *ngIf="loadHero" [ngComponentOutlet]="heroComponent"></ng-container>
+  </section>
 
   <!-- Services Section -->
-  <section class="min-h-screen snap-center ">
-    <app-services></app-services>
+  <section class="min-h-screen snap-center" id="servicesSection">
+    <ng-container *ngIf="loadServices" [ngComponentOutlet]="servicesComponent"></ng-container>
   </section>
 </div>
 
-<!-- Portfolio Section (outside container-custom) -->
-<section class="min-h-screen snap-center w-full m-0 p-0">
-  <app-portfolio></app-portfolio>
+<!-- Portfolio Section -->
+<section class="min-h-screen snap-center w-full m-0 p-0" id="portfolioSection">
+  <ng-container *ngIf="loadPortfolio" [ngComponentOutlet]="portfolioComponent"></ng-container>
 </section>
 
-<!-- Contact Section -->  
+<!-- Contact Section -->
 <div class="container-custom">
-  <section class="min-h-screen snap-center">
-    <app-contact></app-contact>
+  <section class="min-h-screen snap-center" id="contactSection">
+    <ng-container *ngIf="loadContact" [ngComponentOutlet]="contactComponent"></ng-container>
   </section>
 </div>
   

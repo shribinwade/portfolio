@@ -115,4 +115,11 @@ export class HeroComponent implements OnInit {
       this.isRotate = 'visible';
     }, 0);
   }
+
+  downloadResume(){
+    const link = document.createElement('a');
+    link.href = 'Resume.pdf';
+    link.download = 'My_Resume.pdf';
+    link.click();
+  }
 }

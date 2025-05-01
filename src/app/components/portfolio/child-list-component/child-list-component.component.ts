@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostBinding, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,14 +7,16 @@ interface List {
   img: string,
   title: string,
   dec: string,
-  link: string
+  link: string,
+  techStack:string
 }
 
 @Component({
   selector: 'app-child-list-component',
   standalone: true,
   templateUrl: './child-list-component.component.html',
-  styleUrl: './child-list-component.component.css'
+  styleUrl: './child-list-component.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildListComponentComponent implements AfterViewInit {
   @Input('list') list!: List;

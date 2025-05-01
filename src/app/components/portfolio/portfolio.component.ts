@@ -25,39 +25,45 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   items = [
     { 
       id: 1,
-      img: 'portfolioImg.png',
-      title: "Animated Project 1",
-      dec: "Description Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 1",
-      link: '/'
+      img: 'dataXplode.png',
+      title: "DataXplode",
+      dec: "Market insight and strategic intelligence tool, It Utilize AI-driven analysis and optimize product positioning",
+      techStack:"Angular 17, Angular Material, Bootstrap, Spring boot, Postgres, FastAPI , Selenium with python, JWT",
+      link: 'https://dataxplode.com'
     },
     { 
       id: 2,
-      img: 'portfolioImg.png',
-      title: "Animated Project 2",
-      dec: "Description Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 2",
-      link: '/'
+      img: 'kissanYodha.png',
+      title: "Kisan Yodha - Empowering Farmers with AI",
+      techStack:"Flutter, Material UI, NodeJS, Express JS, Postgres, JWT",
+      dec: "Kisan Yodha is a powerful and easy-to-use mobile app built for farmers, traders, and agri-entrepreneurs. Designed to support smart farming decisions, Kisan Yodha offers a suite of tools powered by AI to help users maximize productivity and profits.",
+      link: 'https://github.com/shribinwade/KisanYodhaApp'
     },
+
     { 
       id: 3,
-      img: 'portfolioImg.png',
-      title: "Animated Project 3",
-      dec: "Description Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 3",
-      link: '/'
+      img: 'cms.png',
+      title: "CRM System",
+      dec: "Its primary goal is to help café owners manage customer relationships, streamline orders, track feedback, promote loyalty programs, and gain insights into customer preferences and trends. The system provides a centralized platform to manage customers, employees, inventory, promotions, and sales analytics.",
+      techStack:"Angular 9, Spring boot, Postgres, Angular Material",
+      link: 'http://github.com/shribinwade/CMS-Project'
     },
     { 
       id: 4,
       img: 'portfolioImg.png',
-      title: "Animated Project 4",
-      dec: "Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 4",
+      title: "3D Animated Portfolio Project",
+      techStack:"Angular 17, Angular Material, Bootstrap, Spring boot, Postgres, FastAPI , Selenium with python, JWT",
+      dec: "Developed Portfolio website using Angular 19, Tailwind 4, Angular animations, GSAP, Three.js, Js Mail",
       link: '/'
     },
-    { 
-      id: 5,
-      img: 'portfolioImg.png',
-      title: "Project 5",
-      dec: "Description Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 5",
-      link: '/'
-    }
+    // { 
+    //   id: 4,
+    //   img: 'portfolioImg.png',
+    //   title: "Animated Project 3",
+    //   techStack:"Angular 17, Angular Material, Bootstrap, Spring boot, Postgres, FastAPI , Selenium with python, JWT",
+    //   dec: "Description Description Animated AnimatedAnimatedAnimated Animated Animated Animated ProjectAnimated Project 3",
+    //   link: '/'
+    // },
   ];
 
   constructor(private cdr: ChangeDetectorRef) {
@@ -66,6 +72,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initHorizontalScroll();
+    this.cdr.detectChanges();
     // this.initAnimation();
     // this.projects.changes.subscribe(() => {
     //   this.initAnimation();
@@ -101,6 +108,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     const list = this.pList.nativeElement;
 
     const scrollDistance = 1 * list.scrollWidth - window.innerWidth;
+
 
     ScrollTrigger.create({
       trigger: container,

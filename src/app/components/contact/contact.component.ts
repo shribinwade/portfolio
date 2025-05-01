@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {FormControl,  FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { ContactSVGComponent } from "./contact-svg/contact-svg.component";
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -11,11 +12,22 @@ gsap.registerPlugin(ScrollTrigger);
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrl: './contact.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
 })
 export class ContactComponent implements OnInit,AfterViewInit {
 
   @ViewChildren('formItemRef', { read: ElementRef }) formItems!: QueryList<ElementRef>;
+
+  @ViewChild('svgPath', { static: true }) svgPath!: ElementRef<SVGPathElement>;
+  @ViewChild('box', { static: true }) box!: ElementRef<SVGGElement>;
+  @ViewChild('wrapper',{static:true}) wrapper!: ElementRef<HTMLDivElement>
+  @ViewChildren('circle',  ) circle!: QueryList<ElementRef>;
+  @ViewChild('hair', { static: true }) hair!: ElementRef<SVGPathElement>;
+
+  @ViewChild('wiggleGroup') wiggleGroup!: ElementRef<SVGGElement>;
+  @ViewChild('rotateGroup') rotateGroup!: ElementRef<SVGGElement>;
 
   profileForm:FormGroup = new FormGroup({
     firstName: new FormControl(''),
@@ -35,7 +47,6 @@ export class ContactComponent implements OnInit,AfterViewInit {
           trigger: item,
           start: 'top bottom',
           end: 'bottom bottom',
-         
           toggleActions: 'restart none none reverse',
           markers: false,
           
@@ -48,6 +59,107 @@ export class ContactComponent implements OnInit,AfterViewInit {
         ease: 'power2.out'
       });
     });
+
+
+    const path = this.svgPath.nativeElement;
+
+    // Get total path length
+    const pathLength = path.getTotalLength();
+
+    // Set initial dash style
+    path.style.strokeDasharray = pathLength.toString();
+    path.style.strokeDashoffset = pathLength.toString();
+
+    // Animate with GSAP
+    gsap.to(path, {
+      scrollTrigger: {
+        trigger: this.wrapper.nativeElement,
+        start: 'top 90%',
+        end: 'bottom 80%',
+        toggleActions: 'restart none none none',
+        markers:false,
+      },
+      strokeDashoffset: 0,
+      duration: 10,
+      ease: 'linear',
+      repeat: -1, 
+      repeatDelay:1, 
+      yoyo: true
+    });
+
+    gsap.to(this.box.nativeElement, {
+      x: 10,
+      y: 10,
+      duration: 4,
+      ease: 'linear',
+      repeat: -1,
+      yoyo: true,
+    });
+
+    const hairElement = this.hair.nativeElement;
+
+    gsap.to(hairElement, {
+      duration: 3,
+      repeat: -1, // Infinite repeat
+      yoyo: true, // Reverse on repeat
+      ease: "linear",
+      fill: "#2f2e41",
+      keyframes: [
+        { fill: '#2f2e41', duration: 1 },
+        { fill: '#ffffff', duration: 1 },
+        { fill: '#2f2e41', duration: 1 },
+   
+      ],
+
+    });
+
+
+    this.circle.forEach((itemRef, index) => {
+      const circleElement = itemRef.nativeElement;
+      gsap.to(circleElement, {
+        duration: 6,
+        repeat: -1, // Infinite repeat
+        yoyo: true, // Reverse on repeat
+        ease: "linear",
+        keyframes: [
+          { fill: '#c68642', duration: 1.5 },
+          { fill: '#8d5524', duration: 1.5 },
+          { fill: '#3e1c1b', duration: 1.5 },
+          { fill: '#f1c27d', duration: 1.5 },
+        ],
+        
+      });
+    });
+
+    const tl = gsap.timeline({ 
+      repeat: -1, 
+      repeatDelay: 4, 
+      defaults: { ease: 'easeInOut', duration: 0.03 } 
+    });
+
+    // Simulate the motion.g x:[0, -5, 5, ...]
+    tl.to(this.wiggleGroup.nativeElement, { x: -5 })
+      .to(this.wiggleGroup.nativeElement, { x: 5 })
+      .to(this.wiggleGroup.nativeElement, { x: -5 })
+      .to(this.wiggleGroup.nativeElement, { x: 5 })
+      .to(this.wiggleGroup.nativeElement, { x: 0 })
+      .to(this.wiggleGroup.nativeElement, { x: -5 })
+      .to(this.wiggleGroup.nativeElement, { x: 5 })
+      .to(this.wiggleGroup.nativeElement, { x: -5 })
+      .to(this.wiggleGroup.nativeElement, { x: 5 })
+      .to(this.wiggleGroup.nativeElement, { x: 0 });
+  
+
+      gsap.to(this.rotateGroup.nativeElement, {
+        rotation: -5,
+        transformOrigin: '150px 100px', // Adjust to match your group's center
+        duration: 2,
+        ease: 'linear',
+        repeat: -1,
+        yoyo: true, // acts like repeatType: 'reverse'
+      });
+    
+
   }
 
  

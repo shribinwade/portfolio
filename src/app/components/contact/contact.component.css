@@ -1,14 +1,21 @@
 @reference "tailwindcss"; 
 .contact{
-    @apply h-screen flex items-center gap-[100px] text-white
+    @apply h-screen flex items-center gap-[70px] text-white max-md:flex-col max-xl:gap-[30px]
 }
 
 .cSection{
-    @apply w-1/2  p-[20px] h-full flex justify-center items-center
+    @apply w-1/2 p-[20px] h-screen flex justify-center items-center max-md:w-full
+}
+
+.cSection:first-child{
+    @apply max-md:h-[50%]
+}
+.cSection:last-child{
+    @apply max-md:h-[20%]
 }
 
 .forms{
-    @apply flex w-[90%]  flex-col gap-[10px] 
+    @apply flex w-[90%]  flex-col gap-[10px]   max-xl:w-full
 } 
 
 input, textarea{
@@ -28,3 +35,4 @@ label{
 .error{
     @apply text-[#dd4c62] text-[13px] 
 }
+
