@@ -1,0 +1,49 @@
+name: Deploy Angular Portfolio Dist to S3 + CloudFront
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow only on push events to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Checkout the repository content to the GitHub runner
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18  # Specify Node.js version to use
+
+    - name: Install dependencies
+      run: npm ci  # Clean install dependencies using package-lock.json
+
+    - name: Build Angular app
+      run: npm run build -- --configuration production  # Build the Angular app using the production configuration
+
+    - name: Install AWS CLI
+      run: |
+           sudo apt-get install -y awscli  # Install AWS CLI to interact with AWS services
+
+    - name: Copy dist folder to S3
+      run: |
+           aws s3 sync dist/** s3://$S3_BUCKET_NAME --delete  # Sync build output to the specified S3 bucket and delete removed files
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS credentials and config from GitHub secrets
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation \
+           --distribution-id $CLOUDFRONT_DIST_ID \
+           --paths "/*"  # Invalidate all cached files to ensure new changes are served
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS credentials and config from GitHub secrets
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}  # CloudFront distribution ID to invalidate
