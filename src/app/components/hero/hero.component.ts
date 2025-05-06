@@ -119,7 +119,7 @@ export class HeroComponent implements OnInit {
   downloadResume(){
     const link = document.createElement('a');
     link.href = 'Resume.pdf';
-    link.download = 'My_Resume.pdf';
+    link.download = 'Shrihari_Binwade_FullStack_Developer.pdf';
     link.click();
   }
 }
