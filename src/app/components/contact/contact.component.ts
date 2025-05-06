@@ -4,7 +4,7 @@ import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import { ContactSVGComponent } from "./contact-svg/contact-svg.component";
+
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
